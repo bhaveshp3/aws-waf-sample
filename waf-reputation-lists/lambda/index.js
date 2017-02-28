@@ -254,7 +254,8 @@ function flattenObjectArray(array, propertyName) {
  */
 function done(context, err, message) {
     console[err ? 'error' : 'log'](message, err);
-    context.done(err, message);
+     context.callbackWaitsForEmptyEventLoop = false; 
+	callback(null, message);
 }
 
 /**
